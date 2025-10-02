@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 15</title>
+</head>
+<body>
+    <p>Hemos cambiado de ubicación esta página. En breves momentos será redireccionado...<span id="cuenta-atras"></span></p>
+   
+    <script>
+        let cont=5;
+        let numeros=document.getElementById("cuenta-atras");
+       setInterval(crono,1000)
+       function crono() {
+        numeros.innerHTML=cont;
+        cont--;
+
+        if (cont==0) {
+            location.href="http://www.pccomponentes.com"
+        }
+       }
+    </script>
+</body>
+</html>

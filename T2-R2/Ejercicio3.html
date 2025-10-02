@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <h3 id="crono"></h3>
+    <script>
+        // he colocado solo 5 seg para comprobar que al acabar funciona
+        let cont=5;
+        let idInterval=setInterval(crono,1000);
+        let texto=document.getElementById("crono");
+        function crono() {
+           
+            texto.innerHTML=cont;
+            cont--;
+
+            if (cont==0) {
+                clearInterval(idInterval);
+                location.href="https://www.google.com/?hl=es";
+                
+            }
+        }
+    </script>
+</body>
+</html>

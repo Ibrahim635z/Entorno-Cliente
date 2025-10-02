@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Ajedrez</title>
+   
+</head>
+<body>
+
+    <script>
+        let anchoCelda = parseInt(prompt("Introduzca el ancho de la celda (en píxeles). La altura será la misma."));
+       
+        const totalAncho = anchoCelda * 8;
+        const totalAlto = anchoCelda * 8;
+
+        document.write('<table border="1" cellspacing="0" style="border-collapse: collapse; width:' + totalAncho + 'px; height:' + totalAlto + 'px;">')
+        
+        for (let i = 0; i < 8; i++) {
+            document.write('<tr>'); 
+
+            
+            for (let j = 0; j < 8; j++) {
+               
+                if ((i + j) % 2 === 0) {
+                    document.write('<td style="width:' + anchoCelda + 'px; height:' + anchoCelda + 'px; background-color: Black;"></td>'); 
+                } else {
+                    document.write('<td style="width:' + anchoCelda + 'px; height:' + anchoCelda + 'px; background-color: White;"></td>'); 
+                }
+            }
+
+            document.write('</tr>'); 
+        }
+        
+        
+        document.write('</table>');
+    </script>
+</body>
+</html>

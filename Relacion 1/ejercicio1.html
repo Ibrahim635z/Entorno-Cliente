@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones de Comparación</title>
+</head>
+<body>
+
+    <script>
+        // Este programa realiza varias operaciones de comparación y muestra el resultado en una serie de alertas.
+        
+            // El operador de igualdad (==) verifica si dos valores son iguales, sin tener en cuenta el tipo de dato.
+            let resultado1 = 20 == 20;
+            alert("La operación 20 == 20 es " + resultado1);
+
+            // El operador de igualdad estricta (===) verifica si dos valores son iguales Y del mismo tipo de dato.
+            let resultado2 = 20 === 20;
+            alert("La operación 20 === 20 es " + resultado2);
+
+            // Aquí se compara un entero con un número decimal. Aunque los valores son los mismos, JavaScript los trata como el mismo tipo de dato (Number).
+            let resultado3 = 20 === 20.0;
+            alert("La operación 20 === 20.0 es " + resultado3);
+
+            // La comparación de cadenas de texto es sensible a mayúsculas y minúsculas.
+            let resultado4 = "Juan" == "juan";
+            alert('La operación "Juan" == "juan" es ' + resultado4);
+
+            // La comparación de cadenas se basa en el orden alfabético de los caracteres, según la tabla de codificación Unicode.
+            // La 'J' mayúscula tiene un valor Unicode menor que la 'j' minúscula, por lo que "Juan" no es mayor que "juan".
+            let resultado5 = "Juan" > "juan";
+            alert('La operación "Juan" > "juan" es ' + resultado5);
+
+            // Por la misma razón que la anterior, "Juan" es menor que "juan".
+            let resultado6 = "Juan" < "juan";
+            alert('La operación "Juan" < "juan" es ' + resultado6);
+
+            // El operador (==) intenta convertir los tipos para hacer la comparación.
+            // En este caso, el string "123" se convierte al número 123 antes de comparar, resultando en true.
+            let resultado7 = "123" == 123;
+            alert('La operación "123" == 123 es ' + resultado7);
+
+            // El operador (===) no realiza conversiones de tipo.
+            // Como "123" es un string y 123 es un número, los tipos son diferentes, por lo que el resultado es false.
+            let resultado8 = "123" === 123;
+            alert('La operación "123" === 123 es ' + resultado8);
+
+            // La función parseInt() convierte el string "123" en el número entero 123.
+            // Luego, el operador (===) compara dos números del mismo tipo y valor, resultando en true.
+            let resultado9 = parseInt("123") === 123;
+            alert('La operación parseInt("123") === 123 es ' + resultado9);
+        
+    </script>
+
+</body>
+</html>

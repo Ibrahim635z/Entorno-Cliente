@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countdown</title>
+</head>
+<body>
+    <script>
+        var countdown=prompt("Introduce un número para iniciar la cuenta atrás");
+        
+        while (countdown>0) {
+            alert(countdown+"... ");
+            countdown++ ;
+        }
+
+        /*lo que ocurre al cambiar el countdown-- por countdown++ es que la cuenta atrás deja de funcionar y se convertirá en una cuenta infinita, ya que el bucle
+        se va repetir siempre que el valor de la variable sea mayor que cero lo que significa que va esta sumando 1 infitamente ya que no hay ninguna condicion que
+        pare el bucle*/
+    </script>
+</body>
+</html>

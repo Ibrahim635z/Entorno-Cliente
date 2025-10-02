@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edad</title>
+</head>
+<body>
+    <script>
+        // usando el condicional :? encadenado podemos hacer todos los casos en dos lineas de codigo
+         
+        let edad=prompt("Introduce tu edad:")
+
+        edad > 18 ? alert("Absoluto") : edad >= 16 && edad<=18 ? alert("Juvenil") : edad == 14 || edad==15 ? alert("Cadete") : edad == 12 || edad==13 ? alert("Infantil") :
+        edad == 10 || edad== 11 ? alert("Alevin") : edad == 8 || edad== 9 ? alert("Benjamin") : edad < 8 ? alert("Prebenjamin") : alert("La edad introducida no es correcta");
+
+    </script>
+</body>
+</html>

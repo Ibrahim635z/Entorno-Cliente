@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12</title>
+</head>
+<body>
+    
+    <script>
+        let titulo=prompt("Escribe el titulo para la página:");
+        
+        let nventana=window.open("",titulo,"height=400,width=500");
+        // le resto 500 al ancho total de la pantalla porque es el ancho de mi ventana asi me aseguro que este pegado a la derecha
+        nventana.moveTo(screen.width - 500, 0);
+        nventana.document.write(`<p>${titulo}</p>`);
+
+    </script>
+
+    <button onclick="nventana.close()">Cerrar Ventana Secundaria</button>
+      
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio 3</title>
+</head>
+<body>
+    <script>
+        let numColumnas=parseInt(prompt("Introduce el numero de columnas de la tabla"));
+        let altura=prompt("Introduce la altura(en pixeles)");
+        let anchura=prompt("Inytoduce la anchura(en pixeles)");
+
+        let anchoCelda = anchura / numColumnas;
+
+        document.write('<table border="0" cellspacing="2" bgcolor="Black" width='+anchura+'>');
+        document.write('<tr bgcolor="Black" height='+altura+'>');
+
+        for (let i = 1; i <= numColumnas; i++) {
+            if (i%2==0) {
+                document.write('<td width='+anchoCelda+' bgcolor="White"> &nbsp; </td>')
+            } else {
+                document.write('<td width='+anchoCelda+' bgcolor="Black"> &nbsp; </td>')
+            }
+          
+            
+        }
+
+        document.write('</tr>')
+        document.write('</table>')
+
+    </script>
+</body>
+</html>

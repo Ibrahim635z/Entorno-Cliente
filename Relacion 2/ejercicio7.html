@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio 7</title>
+</head>
+<body>
+    <script>
+       
+        let numColumnas = parseInt(prompt("Introduce el numero de columnas de la tabla"));
+        let numFilas = parseInt(prompt("Introduce el numero de filas"));
+        let altura = parseInt(prompt("Introduce la altura (en pixeles)"));
+        let anchura = parseInt(prompt("Introduce la anchura (en pixeles)"));
+
+        let anchoCelda = anchura / numColumnas;
+
+        
+        document.write('<table border="1" cellspacing="0" bgcolor="black" width="' + anchura + '">');
+
+        
+        for (let i = 0; i < numFilas; i++) {
+            document.write('<tr height="' + altura + '" bgcolor="white">');
+
+            for (let j = 0; j < numColumnas; j++) {
+                document.write('<td width="' + anchoCelda + '"> &nbsp; </td>');
+            }
+
+            
+            document.write('</tr>');
+        }
+
+       
+        document.write('</table>');
+    </script>
+</body>
+</html>

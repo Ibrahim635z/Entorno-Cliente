@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13</title>
+</head>
+<body>
+    <button onclick="abrirVentana()">Abrir ventana Secundaria</button>
+    <button onclick="cerrarVentana()">Cerrar ventana secundaria</button>
+    <button onclick="enviaMensaje()">Enviar mensaje a la ventana secundaria</button>
+    <script>
+        let nventana;
+        function abrirVentana() {
+            nventana=window.open("VentanaSecundaria.html","Titulo","height=500,width=500")
+           
+        }
+
+        function cerrarVentana() {
+            if (nventana) {
+                nventana.close();
+            }
+        }
+
+        function enviaMensaje() {
+           
+            let mensaje=prompt("Que mensaje va a enviar")
+            nventana=window.open("VentanaSecundaria.html","Titulo","height=500,width=500")
+            
+            // espero un poco para escribir el mensaje por si la ventana no se ha abierto aun
+            setTimeout(function abrir() {
+                 nventana.recibeMensaje(mensaje);
+            },500)
+            
+        }
+
+    </script>
+</body>
+</html>

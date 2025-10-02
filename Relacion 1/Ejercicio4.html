@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj</title>
+</head>
+<body>
+    <script>
+        let EnPunto=true;
+       for (let horas = 9; horas < 22 ; horas++){
+        for (let minutos = 0; minutos < 60; minutos += 30) {
+         
+            let minutosFormateados = minutos < 10 ? "0" + minutos : "" + minutos;
+            document.write("Hora: " , horas , ":" , minutosFormateados + "<br>");
+            
+            minutos==0 ? EnPunto=true : EnPunto=false;
+            document.write("Son en punto?: "+EnPunto+ "<br>");
+            document.write("------" + "<br>")
+        }
+       
+       }
+      
+    </script>
+</body>
+</html>

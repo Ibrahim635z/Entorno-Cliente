@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <script>
+        let numeroJ1=parseInt(prompt("Hola jugador 1, Introduce el numero que hay que adivinar"));
+        let numeroJ2=parseInt(prompt("Hola jugador 2, Cual crees que es el numero?"));
+
+        while (numeroJ1!=numeroJ2) {
+            if (numeroJ2>numeroJ1) {
+                numeroJ2=parseInt(prompt("Error! "+numeroJ2+" es mayor que el numero que quieres adivinar"));
+            } else if (numeroJ2<numeroJ1) {
+                numeroJ2=parseInt(prompt("Error! "+numeroJ2+" es menor que el numero que quieres adivinar"));
+            } 
+           
+        }
+         document.write("Enhorabuena Haz acertado el numero!");
+    </script>
+</body>
+</html>

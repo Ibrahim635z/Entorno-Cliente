@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>control parental</title>
+</head>
+<body>
+    
+    <script>
+        // introduzco en el codigo tolowercase() para que si el usuario me lo da en mayuscula no generar ningun problema y asegurarme que estoy comparando buen la cadena
+        // de caracteres
+    let nombre=prompt("¿ Cual es el nombre completo del primer presidente de la democracia Española?");
+    while (nombre.toLowerCase()!=="adolfo suarez") {
+        
+        if (nombre.toLowerCase()==="adolfo") {
+            nombre=prompt("ERROR te falta el apellido,¿Cual es el nombre completo del primer presidente de la democracia Española? ");
+            
+        } else if(nombre.toLowerCase()==="suarez") {
+            nombre=prompt("ERROR te falta el nombre,¿Cual es el nombre completo del primer presidente de la democracia Española? ");
+        } else {
+            nombre=prompt("Error, intentalo de nuevo")
+        }
+        
+    }
+
+    alert("Enhorabuena has acertado!")
+    </script>
+    
+</body>
+</html>
