@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+    <script src="Relacion1.js"></script>
+</head>
+<body>
+    <h1>Simulacion 6000 Tiradas</h1>
+    <script>
+        let result
+        let num1=0,num2=0,num3=0,num4=0,num5=0,num6=0
+        for (let i = 0; i < 6000; i++) {
+           result=lanzamiento();
+           switch (result) {
+            case 1:
+                num1++;
+                break;
+            case 2:
+                num2++
+                break;
+            case 3:
+                num3++
+                break;
+            case 4:
+                num4++
+                break;
+            case 5:
+                num5++
+                break;
+            case 6:
+                num6++
+                break;
+           
+            default:
+                break;
+           }
+            
+        }
+
+        document.write(`Numero 1: ${num1} veces <br> Numero 2: ${num2} veces <br> Numero 3: ${num3} veces <br> Numero 4: ${num4} veces <br> Numero 5: ${num5} veces <br> Numero 6: ${num6} veces`)
+    </script>
+</body>
+</html>

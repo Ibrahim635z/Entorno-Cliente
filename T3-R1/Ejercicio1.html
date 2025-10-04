@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <script src="Relacion1.js"></script>
+</head>
+<body>
+    
+    <script>
+        let numeros=[];
+        let maximo;
+
+        for (let i = 0; i < 4; i++) {
+            numeros[i]=prompt(`Introduce el numero ${i+1}`)
+            
+        }
+
+        maximo=maximum(numeros[0],numeros[1],numeros[2],numeros[3])
+
+        alert(`El numero maximo es ${maximo}`)
+    </script>
+
+</body>
+</html>

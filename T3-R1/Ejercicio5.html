@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5</title>
+    <script src="Relacion1.js"></script>
+  </head>
+  <body>
+    <script>
+      let v, a, radio, opc;
+      do {
+        opc = parseInt(
+          prompt(
+            `Escoge una opcion: \n 1. Calcular volumen de una esfera \n  2. Calcular el area de un circulo`
+          )
+        );
+        switch (opc) {
+          case 1:
+            radio = parseInt(prompt("Introduce el radio de la Esfera"));
+            v = volumen(radio);
+            alert(`El Volumen de la esfera de radio ${radio} es: ${v}`);
+            break;
+          case 2:
+            radio = parseInt(prompt("Introduce el radio del circulo"));
+            a = areaCirculo(radio);
+            alert(`El Area del cirulo de radio ${radio} es: ${a}`);
+            break;
+
+          default:
+            alert("Esa no es una de las opciones. Intentalo de nuevo");
+            break;
+        }
+      } while (opc != 1 && opc != 2);
+    </script>
+  </body>
+</html>

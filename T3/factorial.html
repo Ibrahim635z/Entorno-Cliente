@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Factorial</title>
+  </head>
+  <body>
+    <script>
+      function factorial(n) {
+        let resultado=1;
+
+       
+
+          for (let i = 2; i <= n; i++) {
+            resultado = i * resultado;
+          }
+
+          return resultado;
+        }
+      
+        let result
+        function operacion(v1,v2,op) {
+            if (op=="+") {
+                result= v1+v2;
+            }
+            if (op=="-") {
+                result=v1-v2;
+            }
+            if (op=="*") {
+                result=v1*v2;
+            }
+
+            return result;
+        }
+
+      document.write(factorial(3),"<br>")
+      document.write(operacion(2,3,"+"))
+    </script>
+  </body>
+</html>
