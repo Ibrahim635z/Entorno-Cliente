@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practicando</title>
+</head>
+<body>
+    <script>
+        
+        let arAlumnos=[
+            {Nombre:"diana",nota:8},
+            {Nombre:"Cristina",nota:9},
+            {Nombre:"Lucas",nota:4}
+        ]
+      let aprobado=arAlumnos.find(function (obAlumno){
+            return obAlumno.nota<5; // esto devuelve true o false
+        })
+        
+      
+       
+       document.write("La primer aprobado es..<br>", aprobado.Nombre," Con un:",aprobado.nota)
+
+
+       let aproba2=arAlumnos
+
+
+    </script>
+</body>
+</html>

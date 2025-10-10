@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+    <script src="Relacion2.js"></script>
+</head>
+<body>
+    <p id="parrafo1">Texto de ejemplo</p>
+    <p id="parrafo2">Hola mundo</p>
+    <button onclick="buscar(prompt('Introduce la palabra que quieres buscar'))">Buscar</button>
+    <script>
+        function buscar(texto) {
+            let parr1;
+            parr1=document.getElementById("parrafo1");
+            let parr2;
+            parr2=document.getElementById("parrafo2");
+
+            let textoparrafo1=parr1.textContent.toLocaleLowerCase();
+            let textoparrafo2=parr2.textContent.toLocaleLowerCase();
+            let busqueda=texto.toLocaleLowerCase();
+          
+            if (textoparrafo1.includes(busqueda) || textoparrafo2.includes(busqueda)) {
+            alert("Si esta en los parrafos");
+            }else{
+            alert("no esta en los parrafos")
+          }
+        }
+    </script>
+</body>
+</html>

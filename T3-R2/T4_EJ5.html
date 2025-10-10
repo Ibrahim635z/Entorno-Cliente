@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+    <script src="Relacion2.js"></script>
+</head>
+<body>
+    <script>
+        let arrayRandom=[]
+        arrayRandom=randomArray(arrayRandom,100);
+        document.write("El array completo es: ",arrayRandom, "<br>")
+        let result=[];
+        result=valores(arrayRandom);
+        document.write(`El valor maximo es: ${result[0]} <br>`);
+        document.write(`El valor minimo es: ${result[1]} <br>`);
+        document.write(`El valor medio es: ${result[2]}`);
+    </script>
+</body>
+</html>

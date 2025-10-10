@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const articulo={
+            codigo: "AB123",
+            nombre: "Pelota",
+            precio: 5,
+            
+
+            muestrahtml: function () {
+              document.write("Codigo: " ,this.codigo,"<br>");  
+              document.write("Nombre: " ,this.nombre,"<br>");  
+              document.write("Precio: " ,this.precio,"<br>");  
+            },
+
+            pvp: function(){
+                this.precio+=this.precio*0.21;
+            },
+
+            dto: function () {
+                this.precio-=this.precio*0.1
+            },
+
+        };
+
+        let array=[{
+            codigo:"BC456",
+            nombre:"Toalla",
+            precio: 15,
+        },{
+            codigo: "DE543",
+            nombre:"Gorra",
+            precio: 25,
+        },{
+            codigo: "LU875",
+            nombre:"Guantes",
+            precio: 8,
+        },{
+            codigo: "MA436",
+            nombre:"Mesa",
+            precio: 50,
+        },{
+            codigo: "RE175",
+            nombre:"Silla",
+            precio: 20,
+        }]; // rellenar con 5 articulos´
+
+        function encuentra(codigo) {
+            return array.find(elemento => elemento.codigo == codigo);
+        }
+        function ordenaNombre() {
+
+        
+        }
+        function ordenaPrecio() {
+        
+             return array.sort((ob1,ob2) => ob1.precio-ob2.precio );
+            
+        }
+        function filtra(minValor) {
+            
+        }
+        console.log(encuentra("RE175"))
+        ordenaPrecio();
+        console.log(array);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+    <script src="Relacion2.js"></script>
+</head>
+<body>
+    <script>
+        let num=parseInt(prompt("Introduce hasta que numero es el maximo de aleatoriedad"));
+        let array=[];
+        array=randomArray(array,num);
+
+        for (let i = 0; i < array.length; i++) {
+            document.write(`${array[i]} <br>`)
+        }
+    </script>
+</body>
+</html>
