@@ -10,11 +10,13 @@
     <script>
         let array=[]
         for (let i = 0; i < 20; i++) {
-            const element = array[i];
+            
 
-            element=parseInt((Math.random()*100)+1)
+            array[i]=parseInt((Math.random()*100)+1);
             
         }
+
+        document.write("El array sin ordenar:  " ,array, "<br>");
 
         let arrayOrdenado=ordenacionBurbuja(array);
 

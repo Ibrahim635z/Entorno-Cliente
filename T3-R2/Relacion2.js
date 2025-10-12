@@ -141,21 +141,24 @@ function diferencia(array1,array2) {
 
 
 function ordenacionBurbuja(array) {
-    
-    let cambio;
-    for (let i = 0; i < array.length; i++) {
-        const elementI = array[i];
-        
-        for (let j = 0; j < array.length; j++) {
-            const elementJ = array[j];
 
-            if (elementJ>elementJ+1) {
-               
-            }
+    for (let i = 0; i < array.length-1; i++) {
+        
+        for (let j = 0; j < array.length-1-i; j++) {
             
+            
+            if (array[j] > array[j + 1]) {
+
+                // Manera que he encontrado que me evita tener que crear una variable para cambiarlos
+                [array[j], array[j + 1]] = [array[j + 1], array[j]];
+            
+            }
         }
     }
+    
+    return array;
 }
+
 /**
  * Funcion que ordena una serie de nombres separados por ","
  * @param {*} nombres es un string de nombres separados por comas
@@ -167,4 +170,5 @@ function ordenarNombres(nombres) {
     nombreOrdenado.sort();
     return nombreOrdenado;
 }
+
 

@@ -11,7 +11,24 @@
         let texto=prompt("Introduce la cadena de texto:");
         let nuevaVentana=window.open("nuevaVentana.html","Titulo","height=500,width=500");
         
+        let array=texto.split(" ");
 
+        let numPalabras=array.length;
+        // creo una copia del array para que no se me modifiquen los valores del original
+        let arrayInverso=[...array].reverse();
+        let arrayOrdenado=[...array].sort();
+        let arrayOrdenadoInverso=[...arrayOrdenado].reverse();
+
+        nuevaVentana.document.write(
+            ` 
+            1.- Numero palabras: ${numPalabras} <br>
+            2.- Primera palabra: ${array[0]} <br>
+            3.- Ultima palabra: ${array[numPalabras-1]} <br>
+            4.- Frase Inversa: ${arrayInverso} <br>
+            5.- Frase ordenada de la a-z: ${arrayOrdenado} <br>
+            6.- Frase ordenada de la z-a: ${arrayOrdenadoInverso}
+            `
+        )
 
     </script>
 </body>
