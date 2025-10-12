@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+    <script src="RelacionArrays2.js"></script>
+</head>
+<body>
+    <script>
+        let vendedores=[];
+        let sueldo=200;
+        let sueldoFinal;
+        let opc;
+        do {
+
+            opc=prompt(
+                `Introduce una de las siguientes opciones:
+                1.- Dar de alta un vendedor
+                2.- Salir
+                `
+                );
+        } while (opc!=2 && opc!=1);
+
+        if (opc==1) {
+            let name
+            let ventas
+            name=prompt(`Introduce el nombre del nuevo vendedor`);
+            ventas=prompt(`Introduce cuanto ha ganado en ventas esta semana`);
+            sueldoFinal=sueldo+(ventas*0.09);
+
+            vendedores.push({nombre: name, sueldoSemanal: sueldo, ventasSemanal: ventas,sueldoFinalSemanal:sueldoFinal});
+            
+            document.write(`El sueldo final de ${vendedores[0].nombre} es: ${vendedores[0].sueldoFinalSemanal} $`)
+        }
+        
+
+    </script>
+</body>
+</html>
