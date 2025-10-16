@@ -1,17 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 10</title>
     <script src="RelacionArrays2.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let firstClass=[];
-        let turistaClass=[];
+      let firstClass = [1, 2, 3, 4, 5];
+      let turistaClass = [6, 7, 8, 9, 10];
+      let asiento;
+      let asientoElegido ;
+      let indice;
+      let tipo = prompt(`
+            Introduzca el tipo de asiento
+            1.-First class
+            2.-Turista 
+            `);
+        let clase;
+      if (tipo == 1) {
+        clase="First class";
+        asientoElegido = parseInt(
+          prompt(
+            "Asientos disponibles en First class: " +
+              firstClass.join(", ") +
+              "\n Elija un numero de asiento por favor"
+          )
+        );
+        indice = firstClass.indexOf(asientoElegido);
 
+        if (indice !== -1) {
+          // porque indexOf devuelve -1 si no encuentra niniguna coincidencia
+
+          firstClass.splice(indice, 1);
+          alert("Se ha reservado su asiento correctamente");
+        } else {
+          alert("Lo siento este asiento ya esta reservado");
+        }
+      } else if (tipo == 2) {
+        clase="turista";
+      asientoElegido = parseInt(
+          prompt(
+            "Asientos disponibles en Turista" +
+              turistaClass.join(", ") +
+              "\n Eluja un numero de asiento por favor"
+          )
+        );
         
+        indice= turistaClass.indexOf(asientoElegido);
+         if (indice !== -1) {
+          
+
+          turistaClass.splice(indice, 1);
+          alert("Se ha reservado su asiento correctamente");
+        } else {
+          alert("Lo siento este asiento ya esta reservado");
+        }
+
+      }
+
+      
+      document.write("Asientos libres en First Class: " + firstClass +"<br>");
+      document.write("Asientos libres en Turista: " + turistaClass +"<br>");
+      let nventana=window.open("","Billete","height=500,width=500");
+      let result=`Nombre: Ibra, Asiento: ${asientoElegido}, Clase: ${clase}`;
+       nventana.document.write(result);
     </script>
-</body>
+  </body>
 </html>

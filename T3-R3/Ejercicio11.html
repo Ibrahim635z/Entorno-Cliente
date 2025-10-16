@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11</title>
+    <script src="RelacionArrays2.js"></script>
+</head>
+<body>
+    <script>
+        let productos=[1,2,3,4,5];
+        let vendedores=[1,2,3,4];
+
+        let ventas=[
+            [0,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0],
+        ]
+
+     
+        function estadillo(nVendedor,nProducto,valorTotal) {
+            this.nVendedor=nVendedor;
+            this.nProducto=nProducto;
+            this.valorTotal=valorTotal;
+        }
+
+
+        let informeMes=[
+            
+            new estadillo(1,1,40),
+            new estadillo(2,2,50),
+            new estadillo(3,4,30),
+            new estadillo(4,5,60),
+            new estadillo(3,3,70),
+            new estadillo(2,3,40),
+            new estadillo(1,2,80),
+
+        ]
+
+         for (let i = 0; i < informeMes.length; i++) {
+            let informe = informeMes[i];
+            
+            // Se resta 1 para ajustar al indice del array (que empieza en 0)
+            let filaProducto = informe.nProducto - 1;
+            let columnaVendedor = informe.nVendedor - 1;
+            
+            
+            ventas[filaProducto][columnaVendedor] += informe.valorTotal;
+         }
+
+
+         // tabla
+         document.write("<h1>Resumen de Ventas del Mes</h1>");
+
+        
+        let tablaHTML = `<table style="text-align:center">`;
+
+        
+        tablaHTML += "<tr>";
+        tablaHTML += "<th>Producto</th>"; 
+        for (let i = 0; i < 4; i++) {
+            tablaHTML += `<th>Vendedor ${i + 1}</th>`;
+        }
+        tablaHTML += "<th>Total por Producto</th>"; 
+        tablaHTML += "</tr>";
+
+       
+        let totalPorVendedor = [0, 0, 0, 0];
+
+       
+        for (let i = 0; i < ventas.length; i++) { 
+            let totalPorProducto = 0; 
+            tablaHTML += "<tr>";
+            tablaHTML += `<th>Producto ${i + 1}</th>`; 
+
+            for (let j = 0; j < ventas[i].length; j++) { 
+                tablaHTML += `<td>${ventas[i][j]} €</td>`;
+                totalPorProducto += ventas[i][j];
+                totalPorVendedor[j] += ventas[i][j]; 
+            }
+            
+            
+            tablaHTML += `<td>${totalPorProducto} €</td>`;
+            tablaHTML += "</tr>";
+        }
+        
+        
+        tablaHTML += "<tr>";
+        tablaHTML += "<th>Total por Vendedor</th>";
+        for (let i = 0; i < totalPorVendedor.length; i++) {
+            tablaHTML += `<td>${totalPorVendedor[i]} €</td>`;
+        }
+        tablaHTML += "<td></td>"; 
+        tablaHTML += "</tr>";
+
+        tablaHTML += "</table>";
+
+        
+        document.write(tablaHTML);
+
+        
+    </script>
+
+</body>
+</html>

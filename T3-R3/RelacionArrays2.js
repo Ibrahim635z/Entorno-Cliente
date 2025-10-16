@@ -155,3 +155,11 @@ function separateArray(array) {
     return arraySeparado;
 }
 
+
+
+function venderBilletes(first,turista) {
+    
+}
+
+
+
