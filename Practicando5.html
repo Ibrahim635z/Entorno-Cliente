@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicando objetos</title>
+</head>
+<body>
+    <script>
+
+        class Articulo {
+            constructor(codigo,nombre,precio) {
+                this.codigo=codigo;
+                this.nombre=nombre;
+                this.precio=precio;
+            }
+
+            getPVP(){
+                let precioPVP=this.precio*1.21;
+                return precioPVP;
+            }
+        }
+
+        class Cliente {
+            constructor(nif,nombre,direccion,telefono,email) {
+                this.nif=nif;
+                this.nombre=nombre;
+                this.direccion=direccion;
+                this.telefono=telefono;
+                this.email=email;
+            }
+        }
+
+
+        let cli1=new Cliente("45103548j","pablo","C/goya","648532154","prueba@test.es");
+        let arti1=new Articulo("AB123","Toalla",15);
+        let arti2=new Articulo("BD123","Sombrilla",20);
+        
+        console.log(cli1);
+        console.log(arti1);
+
+        class Albaran {
+            constructor(cliente,nAlbaran,fecha,lineas) {
+                this.cliente=cliente;
+                this.nAlbaran=nAlbaran;
+                this.fecha=fecha;
+                this.lineas=lineas;       
+            }
+
+            show(){
+                console.log(this.cliente,this.nAlbaran,this.fecha,this.lineas)
+            }
+            addArticulo(articulo){
+                this.lineas.push(articulo);
+            }
+
+            getTotal(articulo){ // muestra el total de los articulos
+                let total=0;
+                total+=Articulo.precio;
+                console.log(total);
+            }
+        }
+        
+        let alb1=new Albaran(cli1,1,"10/12/2025",[arti1]);
+         alb1.show();
+         alb1.addArticulo(arti2);
+         alb1.show();
+         alb1.getTotal(arti1);
+    </script>
+</body>
+</html>
