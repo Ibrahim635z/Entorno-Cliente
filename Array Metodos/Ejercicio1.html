@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <script src="arrayMetodos.js"></script>
+</head>
+<body>
+    <script>
+    let numeros=[1,5,9,3,7,15,8];
+    let palabras=["esto","es","una","prueba"];
+    let palabras2=["quien","eres","roberto"];
+
+    let numeroMasLargo=numeros.reduce((maximo,actual)=> (actual>maximo ? actual : maximo),numeros[0]);
+    console.log(`El numero mas grande es ${numeroMasLargo}`);
+
+// 2. Encontrar la palabra más larga
+
+const palabraMasLarga = palabras.reduce((masLarga, actual) => (actual.length > masLarga.length ? actual : masLarga), "");
+console.log(`Palabra más larga: "${palabraMasLarga}"`); 
+
+
+// 3. Encontrar números pares
+
+const numerosPares = numeros.filter(numero => numero % 2 === 0);
+console.log(`Números pares: [${numerosPares.join(', ')}]`); 
+
+
+// 4. Encontrar números impares
+
+const numerosImpares = numeros.filter(numero => numero % 2 !== 0);
+console.log(`Números impares: [${numerosImpares.join(', ')}]`); 
+
+// 5. Encontrar palabras que contienen 'es'
+
+const palabrasConEs = palabras.filter(palabra => palabra.includes('es'));
+console.log(`Palabras que contienen 'es': ["${palabrasConEs.join('", "')}"]`);
+
+
+// 6. Comprobar si todos los números son divisibles por tres
+
+const todosDivisiblesPorTres = [3, 6, 9, 12].every(numero => numero % 3 === 0);
+console.log(`¿Son todos los números de [3, 6, 9, 12] divisibles por 3? ${todosDivisiblesPorTres}`); 
+
+const algunosNoDivisiblesPorTres = numeros.every(numero => numero % 3 === 0);
+console.log(`¿Son todos los números del array 'numeros' original divisibles por 3? ${algunosNoDivisiblesPorTres}`);
+
+
+// 7. Unir dos arrays en pares
+
+const letras = ['a', 'b', 'c'];
+const otrosNumeros = [1, 2, 3];
+const arrayCombinado = letras.map((elemento, indice) => [elemento, otrosNumeros[indice]]);
+console.log('Array combinado en pares:', JSON.stringify(arrayCombinado)); 
+
+
+// 8. Ordenar un array combinado de menor a mayor
+
+const arrayUnido = [10, 1, 5].concat([2, 8, 3]);
+arrayUnido.sort((a, b) => a - b);
+console.log(`Array unido y ordenado: [${arrayUnido.join(', ')}]`); 
+
+
+// 9. Eliminar la primera palabra del array
+
+const palabrasLocales = [...palabras];
+const primeraPalabra = palabrasLocales.shift();
+console.log(`Primera palabra eliminada: "${primeraPalabra}"`); 
+console.log(`Array después de shift: ["${palabrasLocales.join('", "')}"]`); 
+
+
+// 10. Añadir una nueva palabra al inicio del array
+
+palabrasLocales.unshift("Hola");
+console.log(`Array después de unshift: ["${palabrasLocales.join('", "')}"]`); 
+
+
+// 11. Reemplazar algunos elementos
+const otrasPalabrasLocales = [...palabras]; 
+otrasPalabrasLocales.splice(2, 2, "un", "conjunto"); // Empezar en índice 2, eliminar 2 elementos y añadir "un" y "conjunto"
+console.log(`Array después de splice: ["${otrasPalabrasLocales.join('", "')}"]`); 
+
+
+
+    </script>
+</body>
+</html>

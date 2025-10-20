@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <script src="arrayMetodos.js"></script>
+</head>
+<body>
+    <script>
+        let nombresCompleto=["Ana Garcia","Juan Perez","Javier Lopez"]
+       
+        
+        let nombresJ=nombresCompleto.filter(nombresCompleto=> nombresCompleto.startsWith("J"));
+
+        let inciales= nombresCompleto.map(nombresCompleto => {
+        let dividir=nombresCompleto.split(' ');
+        let inicialNombre=dividir[0][0];
+        let incialApellido=dividir[1][0];
+
+        return `${inicialNombre}.${incialApellido}.`;
+
+         });
+
+         console.log("Las iniciales son:", inciales);
+
+         let inicialesOrdenadas=inciales.sort();
+
+         console.log("Iniciales ordenadas: ",inicialesOrdenadas);
+    </script>
+</body>
+</html>
