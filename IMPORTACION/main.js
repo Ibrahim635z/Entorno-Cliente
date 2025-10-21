@@ -21,6 +21,8 @@ import { Albaranes } from "./Albaranes.js";
     let alb3=new Albaran(cli1,1,"10/09/2025",[arti1]);
     let alb4=new Albaran(cli1,2,"10/11/2025",[arti1,arti2]);
     
+    // funcion buscar albaran segun el cliente pasado como parametro
+
     function buscarAlbaran(arrAlbaranes, cliente) {
     arrAlbaranes.forEach(albaran => {
         if (albaran.cliente == cliente) {
@@ -28,12 +30,13 @@ import { Albaranes } from "./Albaranes.js";
         }
     });
 }
-
+// funcion buscar el albaran de un cliente cuyo codigo es si ID
    function buscaEnAlbaranClientePorCodigo(arrAlbaranes,cod) {
     let arrNum=[0,1,2,4,3,5]
     function predicate(num) {
         return num==25
     }
+    
     let valor=arrNum.find(num => num==5)
     console.log(valor)
 
