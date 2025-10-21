@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 6</title>
+  </head>
+  <body>
+    <script>
+      // --- Función de Codificación ---
+      function codigoCuadrado(texto) {
+        // --- 1. Limpiar el Texto ---
+        // Usamos '.replace()' para quitar todos los espacios
+        // /\s/g es una "expresión regular" que significa:
+        // \s = cualquier espacio en blanco
+        // g = "global", es decir, que reemplace TODOS, no solo el primero.
+        const textoNormalizado = texto.replace(/\s/g, "");
+
+        // Guardamos la longitud del texto limpio.
+        const longitud = textoNormalizado.length; 
+
+        // --- 2. Calcular Dimensiones de la Matriz ---
+        // Sacamos la raíz cuadrada para saber el tamaño "ideal".
+        const raiz = Math.sqrt(longitud);
+        // Las filas serán la raíz redondeada hacia abajo (ej: 7.3 -> 7).
+        const filas = Math.floor(raiz);
+        // Las columnas serán la raíz redondeada hacia arriba (ej: 7.3 -> 8).
+        // Esto asegura que siempre tengamos espacio para todas las letras.
+        const columnas = Math.ceil(longitud / filas); 
+
+        // --- 3. Llenar la Matriz (Fila por Fila) ---
+        const matriz = [];
+        let indiceCaracter = 0;
+
+        
+        for (let i = 0; i < filas; i++) {
+          const arrayFila = []; 
+
+       
+          for (let j = 0; j < columnas; j++) {
+            // ¿Todavía nos quedan letras en el texto?
+            if (indiceCaracter < longitud) {
+              // Sí: añadimos la letra correspondiente
+              arrayFila.push(textoNormalizado[indiceCaracter]);
+            } else {
+              // No: rellenamos con "" (vacío) para completar el rectángulo
+              arrayFila.push("");
+            }
+        
+            indiceCaracter++;
+          }
+       
+          matriz.push(arrayFila);
+        }
+
+
+        // --- 4. Leer la Matriz (Columna por Columna) ---
+        // El mensaje se obtiene leyendo hacia abajo, de izquierda a derecha
+        let mensajeCodificado = "";
+
+        // ¡Invertimos los bucles!
+    
+        for (let j = 0; j < columnas; j++) {
+     
+          for (let i = 0; i < filas; i++) {
+            // Leemos la matriz "hacia abajo" (matriz[0][0], matriz[1][0], matriz[2][0]...)
+            mensajeCodificado += matriz[i][j];
+          }
+
+          // Añadimos un espacio al final de cada columna
+          mensajeCodificado += " ";
+        }
+
+        // --- 5. Devolver el Mensaje ---
+        // Usamos '.trim()' para quitar el último espacio que sobra al final.
+        return mensajeCodificado.trim();
+      }
+
+      // --- Ejecutar el Programa ---
+      const frase =
+        "If man was meant to stay on the ground god would have given us roots"; 
+      const codificado = codigoCuadrado(frase);
+
+      console.log(codificado);
+     
+    </script>
+  </body>
+</html>

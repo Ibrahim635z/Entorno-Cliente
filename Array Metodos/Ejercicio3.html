@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3</title>
+  </head>
+  <body>
+    <script>
+      
+      const mapaDelTesoro = [
+        [34, 21, 32, 41, 25], 
+        [14, 42, 43, 14, 31], 
+        [54, 45, 52, 42, 23], 
+        [33, 15, 51, 31, 35], 
+        [21, 52, 33, 13, 23], 
+      ];
+
+      // Creamos una función que acepta un mapa como argumento.
+      function encontrarTesoro(mapa) {
+        // El problema dice que empezamos en la esquina (1, 1)
+        let filaActual = 1;
+        let columnaActual = 1;
+
+        while (true) {
+        
+          console.log(`Visitando celda: (${filaActual}, ${columnaActual})`);
+
+          // (1, 1) -> índice [0][0]
+          const indiceFila = filaActual - 1;
+          const indiceColumna = columnaActual - 1;
+
+          // Leemos el valor (la pista) de la celda actual en el mapa
+          const pista = mapa[indiceFila][indiceColumna];
+
+          const valorTesoro = filaActual * 10 + columnaActual;
+
+          if (pista === valorTesoro) {
+            
+            console.log(
+              `TESORO ENCONCONTRADO EN (${filaActual}, ${columnaActual})!`
+            );
+            break;
+          }
+          
+          // El dígito de las decenas 
+          filaActual = Math.floor(pista / 10);
+
+          // El dígito de las unidades
+          columnaActual = pista % 10;
+        }
+      }
+
+      encontrarTesoro(mapaDelTesoro);
+    </script>
+  </body>
+</html>

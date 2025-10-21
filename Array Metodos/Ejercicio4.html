@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4</title>
+  </head>
+  <body>
+    <script>
+        // min y max incluidos
+      function obtenerEnteroAleatorio(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      
+      function crearBusquedaTesoro(filas, columnas) {
+
+       
+          if (filas < 5 || columnas < 5) {
+              console.log("Error: El mapa debe ser de al menos 5x5.");
+              return null;
+          }
+
+          const mapa = [];
+          for (let i = 0; i < filas; i++) {
+              mapa.push(new Array(columnas).fill(0));
+          }
+
+          // --- 2. Definir el camino ---
+          // Elegimos dónde estará el tesoro.
+          const filaTesoro = obtenerEnteroAleatorio(1, filas);
+          const columnaTesoro = obtenerEnteroAleatorio(1, columnas);
+          console.log(`(Secreto: El tesoro estará en: ${filaTesoro}, ${columnaTesoro})`);
+
+          // Usaremos un objeto para guardar las celdas que ya usamos en nuestro camino principal
+          const celdasDelCamino = {};
+
+          // Empezamos en (1, 1) 
+          let filaActual = 1;
+          let columnaActual = 1;
+
+          //Construir el camino paso a paso ---
+          // Este bucle irá saltando de celda en celda hasta llegar al tesoro.
+          while (true) {
+              // Marcamos la celda actual como 'visitada' en nuestro camino.
+              const claveCelda = `${filaActual}_${columnaActual}`;
+              celdasDelCamino[claveCelda] = true;
+
+              // Obtenemos los índices (0-based) de la celda actual
+              const indiceFila = filaActual - 1;
+              const indiceColumna = columnaActual - 1;
+
+              // ¿Hemos llegado al tesoro?
+              if (filaActual === filaTesoro && columnaActual === columnaTesoro) {
+                  // ¡Sí! Ponemos el valor del tesoro y terminamos este bucle.
+                  mapa[indiceFila][indiceColumna] = filaActual * 10 + columnaActual; 
+                  break; 
+              }
+
+              // Si NO es el tesoro, debemos poner una pista para la siguiente celda.
+
+              // Encontrar la *siguiente* celda aleatoria
+              let proximaFila, proximaColumna;
+              do {
+                  // Elegimos una celda aleatoria en el mapa...
+                  proximaFila = obtenerEnteroAleatorio(1, filas);
+                  proximaColumna = obtenerEnteroAleatorio(1, columnas);
+
+                  // ...y comprobamos si YA estaba en nuestro camino.
+                  // Si ya estaba, elegimos otra para no crear un bucle.
+              } while (celdasDelCamino[`${proximaFila}_${proximaColumna}`]);
+
+              // Guardamos la pista en la celda ACTUAL, apuntando a la PRÓXIMA celda.
+              mapa[indiceFila][indiceColumna] = proximaFila * 10 + proximaColumna;
+
+              // Nos movemos a la próxima celda para la siguiente iteración.
+              filaActual = proximaFila;
+              columnaActual = proximaColumna;
+          }
+
+          // Rellenar las celdas restantes 
+          // Ahora, recorremos el resto del mapa.
+          for (let i = 0; i < filas; i++) {
+              for (let j = 0; j < columnas; j++) {
+
+                  // Si la celda es '0', significa que no forma parte
+                  // de nuestro camino principal y necesita ser rellenada.
+                  if (mapa[i][j] === 0) {
+
+                      // Generar una pista aleatoria que NO sea un tesoro accidental
+                      const filaCoord = i + 1;
+                      const colCoord = j + 1;
+                      const valorTesoroCelda = filaCoord * 10 + colCoord;
+
+                      let pistaAleatoria;
+                      do {
+                          // Generamos una pista aleatoria...
+                          const pistaFilaAleatoria = obtenerEnteroAleatorio(1, filas);
+                          const pistaColAleatoria = obtenerEnteroAleatorio(1, columnas);
+                          pistaAleatoria = pistaFilaAleatoria * 10 + pistaColAleatoria;
+
+                          // ...y si justo coincide con el valor de "tesoro"
+                          // para *esta* celda, la descartamos y generamos otra.
+                      } while (pistaAleatoria === valorTesoroCelda);
+
+                      // Asignamos la pista aleatoria válida.
+                      mapa[i][j] = pistaAleatoria;
+                  }
+              }
+          }
+
+          //  Devolver el mapa completo 
+          return mapa;
+      }
+
+
+      const mapaValido = crearBusquedaTesoro(5, 5);
+      console.table(mapaValido);
+
+     
+      // Puedes copiar el 'mapaValido' que se genera y pegarlo
+      // en la variable 'mapaDelTesoro' del Ejercicio 3 para
+      // comprobar que la búsqueda siempre encuentra el tesoro.
+      // encontrarTesoro(mapaValido);
+    </script>
+  </body>
+</html>

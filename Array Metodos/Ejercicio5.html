@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5</title>
+  </head>
+  <body>
+    <script>
+   
+      // Usaremos el mismo mapa del ejercicio 3 para buscar.
+      const mapaParaPuntosSilla = [
+        [34, 21, 32, 41, 25],
+        [14, 42, 43, 14, 31],
+        [54, 45, 52, 42, 23],
+        [33, 15, 51, 31, 35],
+        [21, 52, 33, 13, 23],
+      ];
+
+      // --- Función de Búsqueda de Puntos Silla ---
+      function encontrarPuntosSilla(mapa) {
+        // --- Preparación ---
+        // Guardaremos los puntos encontrados aquí.
+        const puntosSilla = [];
+        // Obtenemos las dimensiones del mapa.
+        const numFilas = mapa.length;
+        const numColumnas = mapa[0].length;
+
+        // --- 1. Recorrer cada Celda ---
+        // Bucle para las filas (índice 'i').
+        for (let i = 0; i < numFilas; i++) {
+          // Bucle para las columnas (índice 'j').
+          for (let j = 0; j < numColumnas; j++) {
+            // Obtenemos el valor de la celda actual.
+            const valorCelda = mapa[i][j];
+
+            // --- 2. Comprobar la Fila ---
+            // ¿Es el valor más grande (o igual) de su fila?
+            // 'mapa[i]' es el array completo de la fila actual.
+            // 'Math.max(...array)' encuentra el valor más alto en ese array.
+            const maximoEnFila = Math.max(...mapa[i]);
+
+            // Si el valor NO es el máximo de la fila, no puede ser un punto silla.
+            // Pasamos a la siguiente celda con 'continue'.
+            if (valorCelda < maximoEnFila) {
+              continue; // Saltar a la siguiente iteración de 'j'
+            }
+
+            // --- 3. Comprobar la Columna ---
+            // Si llegó aquí, SÍ es el máximo de su fila.
+            // Ahora, ¿es el valor más pequeño (o igual) de su columna?
+
+            // Primero, creamos un array temporal con todos los valores de la columna 'j'.
+            // '.map()' crea un nuevo array.
+            // Por cada 'fila' en el 'mapa', tomamos el elemento en el índice 'j'.
+            const columnaArray = mapa.map((fila) => fila[j]);
+
+            // 'Math.min(...array)' encuentra el valor más bajo en ese array.
+            const minimoEnColumna = Math.min(...columnaArray);
+
+            // --- 4. Conclusión ---
+            // Si también es el mínimo (o igual) de su columna...
+            if (valorCelda <= minimoEnColumna) {
+              // ¡Es un punto de silla!
+              // Guardamos las coordenadas (sumamos 1 para verlas como 1-based).
+              puntosSilla.push(`(${i + 1}, ${j + 1}) con valor ${valorCelda}`);
+            }
+          }
+        }
+
+        // --- 5. Imprimir Resultados ---
+        // Al final, mostramos lo que encontramos
+        if (puntosSilla.length === 0) {
+          console.log("No saddle points"); 
+        } else {
+          console.log("Puntos de silla encontrados en:");
+          puntosSilla.forEach((punto) => console.log(punto));
+        }
+      }
+
+      
+      encontrarPuntosSilla(mapaParaPuntosSilla);
+    </script>
+  </body>
+</html>
