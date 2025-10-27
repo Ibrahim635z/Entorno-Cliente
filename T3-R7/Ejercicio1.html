@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let personaliteral = {
+        nombre: "juan",
+        edad: 30,
+
+        esmayor: function () {
+          if (this.edad >= 18) {
+            return `${this.nombre} es mayor de edad.`;
+          } else {
+            return `${this.nombre} NO es mayor de edad.`;
+          }
+        },
+      };
+
+      console.log(personaliteral.esmayor());
+
+      class Persona {
+        
+        constructor(nombre,edad){
+        this.nombre = nombre;
+        this.edad = edad;
+        }
+        esMayorDeEdad(){
+          if (this.edad >= 18) {
+            return `${this.nombre} es mayor de edad.`;
+          } else {
+            return `${this.nombre} NO es mayor de edad.`;
+          }
+        };
+      }
+        let persona1=new Persona("ramon",13)
+      console.log(persona1.esMayorDeEdad());
+
+
+      let arr=[
+        { nombre: "carlos", edad: 50},
+        { nombre: "marta",  edad: 30},
+        { nombre: "antonio", edad: 10}
+    ];
+
+
+    let funcionPromedio= arr => {
+        let suma=0, cont=0;
+        arr.forEach(element => {
+            suma+=element.edad;
+            cont++;
+        });
+        
+        return suma/cont;
+    }
+
+    console.log(funcionPromedio(arr));
+    </script>
+  </body>
+</html>

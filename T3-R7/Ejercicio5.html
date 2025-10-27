@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Alumno{
+            constructor(id,nombre,nota){
+                this.id=id;
+                this.nombre=nombre;
+                this.nota=nota;
+            }
+            
+        }
+
+        class Colegio{
+            constructor(nombre,numAulas,numAlumnos,arrayAlumnos){
+                this.nombre=nombre;
+                this.numAulas=numAulas;
+                this.numAlumnos=numAlumnos;
+                this.arrayAlumnos=[];
+
+                for (let i = 0; i < numAlumnos; i++) {
+                    let notaMedia=5;
+                    let nombre=`Alumno${i+1}`;
+                    let id=i;
+
+                   let nuevoAlumno=new Alumno(id,nombre,notaMedia);
+                    this.arrayAlumnos.push(nuevoAlumno);
+                }
+            }
+
+            buscarAlumno(idbuscado){
+                return this.arrayAlumnos.find(alumno => alumno.id == idbuscado);
+            } 
+            
+
+        }
+    </script>
+</body>
+</html>

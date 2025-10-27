@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Casa{
+            constructor(calle,numero,codigo){
+                this.calle=calle;
+                this.numero=numero;
+                this.codigo=codigo;
+                console.log(`Nueva casa en calle: ${calle}, nº: ${numero},CP:${codigo}.`);
+            }
+            setNumero(numero){
+                this.numero=numero;
+            }
+            setCalle(calle){
+                this.calle=calle;
+            }
+            setCodigoPostal(codigo){
+                this.codigo=codigo
+            }
+
+            imprimeCalle(){
+                return this.calle;
+            }
+            imprimeNumero(){
+                return this.numero;
+            }
+            imprimeCodigoPostal(){
+                return this.codigo;
+            }
+
+        }
+
+        let casaA=new Casa("Garcia Prieto",58,15706);
+        let casaB=new Casa("Camino Caneiro",29,32004);
+        let casaC=new Casa("San Clemente","s/n",15705);
+
+        console.log("El codigo postal de la casaA es:",casaA.imprimeCodigoPostal());
+        console.log("La calle de la casaC es: ",casaC.imprimeCalle());
+
+    </script>
+</body>
+</html>

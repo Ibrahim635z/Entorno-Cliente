@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Punto{
+            constructor(x,y){
+                this.x=x;
+                this.y=y;
+                console.log("Se ha creado el Punto (",x,",",y,")");
+
+            }
+
+            
+        }
+
+        let punto=new Punto(2,3);
+        let punto1=new Punto(3,5);
+        let punto2=new Punto(6,8);
+
+        console.log(punto);
+
+        class Recta{
+            constructor(punto1,punto2){
+                this.punto1=punto1;
+                this.punto2=punto2;
+            }
+
+
+        }
+    </script>
+</body>
+</html>
