@@ -2,6 +2,7 @@ class Buscaminas {
     constructor() {
         this.dimension = 8;
         this.tablero = [];
+        this.tiempoInicio = Date.now();
     }
 
     inicializarTablero() {
@@ -46,11 +47,17 @@ class Buscaminas {
         }    
         
     }
+
+    obtenerTiempo() {
+        return Math.floor((Date.now() - this.tiempoInicio) / 1000);
+    }
 }
 
 const partida1 = new Buscaminas();
 partida1.inicializarTablero();
 partida1.dibujar();
 partida1.rellenarTablero();
-
+if (obtenerTiempo()>600) {
+    console.log("Se te ha acabado el tiempo");
+}
 
