@@ -1,0 +1,36 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f8; /* Un fondo gris claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+       
+        form {
+            background: #ffffff; /* Fondo blanco */
+            padding: 25px;
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
+            width: 100%;
+            max-width: 400px; /* Ancho máximo del formulario */
+        }
+
+    
+        input[type="text"],
+        input[type="number"] {
+            width: 100%; /* Ocupan todo el ancho */
+            padding: 10px; /* Más espacio interno (más alto) */
+            border: 1px solid #ccc; /* Borde gris suave */
+            border-radius: 4px;
+            margin-bottom: 15px; /* Espacio entre cada campo */
+            box-sizing: border-box; 
+        }
+
+        label {
+            display: block; /* Hace que la etiqueta ocupe su propia línea */
+            margin-bottom: 5px; /* Pequeño espacio sobre el input */
+            font-weight: bold;
+        }

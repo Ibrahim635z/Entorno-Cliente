@@ -1,0 +1,123 @@
+body{
+    display: grid;
+    place-items: center;
+    background-color: #6D63A8;
+    min-height: 100vh; 
+}
+
+.form-card {
+    display: flex;
+    /* width: 50%; */ /* <-- Cambiamos esto */
+    width: 90%;
+    max-width: 1000px; /* <-- Ancho máximo */
+    
+    /* height: auto; */ /* <-- Está bien, pero no es necesario */
+    
+    /* border: 1px solid black; */ /* <-- Lo quitamos */
+    
+    /* Añadimos sombra y bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden; /* <-- Muy importante para que la imagen no rompa los bordes */
+}
+
+.imagen {
+    flex: 1; /* Ocupa el 50% */
+    /* Ocultamos la imagen en pantallas pequeñas */
+    display: none; 
+}
+
+.imagen img {
+    width: 100%;
+    height: 100%; /* Asegura que llene la altura */
+    object-fit: cover; /* Evita que la imagen se deforme */
+}
+
+.form {
+    flex: 1; /* Ocupa el 50% */
+    display: flex;
+    flex-direction: column;
+    
+    /* ¡Aquí la magia! */
+    background-color: #fff; 
+    padding: 40px; 
+    
+    /* ¡No necesitas width ni height 100%! */
+}
+
+/* Media query para mostrar la imagen en pantallas grandes */
+@media (min-width: 768px) {
+    .imagen {
+        display: block; /* Mostramos la imagen */
+    }
+}
+
+form{
+    background-color: white;
+}
+form p:first-child{
+    font-weight: bold;
+}
+.form-row {
+    display: flex;
+    gap: 20px; /* Espacio entre los campos */
+    margin-bottom: 15px;
+    padding: 5px 5px;
+}
+
+.form-group {
+    flex: 1; /* Cada grupo ocupa 50% */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
+}
+
+/* Estilos para los Checkbox */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 5px 5px;
+}
+
+.form-check input {
+    margin-right: 10px;
+}
+
+.form-check label {
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Estilos para el botón*/
+.submit-button {
+    background-color: #00AEEF;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 30%;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.submit-button:hover {
+    background-color: #008fbf;
+}
