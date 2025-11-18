@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Tarjeta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <div class="tarjeta-wrapper">
+            
+            <div class="imagen-tarjeta">
+                <img src="./tarjetaavif.avif" alt="Tarjeta VISA"> 
+            </div>
+            
+            <form class="formulario-tarjeta">
+                <div class="grupo-formulario">
+                    <label for="numero-tarjeta">Número de Tarjeta</label>
+                    <input type="text" id="numero-tarjeta" maxlength="19">
+                </div>
+                
+                <div class="grupo-formulario">
+                    <label for="titular-tarjeta">Titular de la Tarjeta</label>
+                    <input type="text" id="titular-tarjeta">
+                </div>
+                
+                <div class="fila-formulario">
+                    <div class="grupo-formulario fecha-expiracion">
+                        <label>Fecha de Expiración</label>
+                        <div class="selectores-fecha">
+                            <select id="mes-expiracion">
+                                <option value="" disabled selected>Mes</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <select id="anio-expiracion">
+                                <option value="" disabled selected>Año</option>
+                                <script>
+                                    // Pequeño script para generar los años automáticamente
+                                    const anioActual = new Date().getFullYear();
+                                    for (let i = 0; i < 10; i++) {
+                                        document.write(`<option value="${anioActual + i}">${anioActual + i}</option>`);
+                                    }
+                                </script>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grupo-formulario grupo-cvv">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" maxlength="4">
+                    </div>
+                </div>
+                
+                <button type="submit" class="boton-enviar">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./ejercicio5.js"></script>
+</body>
+</html>
