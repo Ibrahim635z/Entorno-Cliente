@@ -46,6 +46,12 @@ const crearEstudiante=(db) => {
         div.style.margin = "20px";
         div.style.padding = "20px";
         div.style.flexDirection = "column";
+
+
+
+        div.addEventListener("click" ,() => {
+            console.log(`ID: ${element.id} \n Nombre: ${element.name} \n Nivel: ${element.level}`)
+        })
         });
 
         document.getElementById("activo").addEventListener("change", () => {
@@ -90,11 +96,6 @@ const crearEstudiante=(db) => {
 }
 
 
-const cambioActivos= () => {
-
-    
-    
-}
 
 
 

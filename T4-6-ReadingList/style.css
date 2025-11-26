@@ -1,0 +1,114 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 900px; 
+    height: 500px;
+    background-color: #e0e0e0; 
+    padding: 40px;
+    display: grid;
+    gap: 20px; 
+    
+    
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto 1fr;  
+    grid-template-areas: 
+        "header header"
+        "form   list";
+}
+
+/* CABECERA */
+.main-title {
+    grid-area: header;
+    text-align: center;
+    color: #333;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+/*  FORMULARIO */ 
+.book-form-container {
+    grid-area: form;
+    padding-right: 20px;
+    border-right: 1px solid #ccc; /* Línea divisoria */
+}
+
+.book-form-container h3, 
+.book-list-container h3 {
+    margin-bottom: 15px;
+    color: #666;
+    font-weight: 400;
+}
+
+/* Grid interno del formulario para acomodar los inputs */
+#add-book-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas internas */
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Clase para elementos que deben ocupar las 2 columnas (Titulo y Botón) */
+.full-width {
+    grid-column: span 2;
+}
+
+label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type="button"] {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #bdbdbd; /* Color del botón de la imagen */
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+input[type="button"]:hover {
+    background-color: #a0a0a0;
+}
+
+/*  LISTA */
+.book-list-container {
+    grid-area: list;
+    padding-left: 20px;
+    overflow-y: auto; /* Scroll si la lista es muy larga */
+}
+
+.list-content {
+    list-style: none;
+}
+
+/* Estilo básico para cuando JS agregue elementos */
+.list-content li {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
