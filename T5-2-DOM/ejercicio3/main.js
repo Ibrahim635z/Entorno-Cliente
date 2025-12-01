@@ -104,6 +104,7 @@ const movimiento = () => {
             if (sonAdyacentes(coordsClick, coordsVacia)) {
                 console.log(`Moviendo ${casillaClickada.id} al hueco en ${casillaVacia.id}`);
                 
+                const valorClick = casillaClickada.textContent;
                
                 casillaVacia.textContent = casillaClickada.textContent;
                 casillaClickada.textContent = "";

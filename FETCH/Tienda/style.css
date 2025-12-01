@@ -1,0 +1,131 @@
+/* --- Reset y Estilos Generales --- */
+:root {
+    --primary-color: #3498db;
+    --text-color: #333;
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 2rem;
+}
+
+/* --- Contenedor Principal (Grid) --- */
+/* Como tu JS crea un div directamente en el body, lo seleccionamos así */
+body > div {
+    display: grid;
+    /* Crea columnas automáticas que midan al menos 250px */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Tarjeta del Producto --- */
+body > div > div {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Para contener elementos hijos */
+}
+
+/* Efecto Hover en la tarjeta */
+body > div > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Imagen del Producto --- */
+body > div > div img {
+    width: 100%;
+    height: 180px; /* Altura fija para uniformidad */
+    object-fit: contain; /* La imagen se ajusta sin deformarse */
+    margin-bottom: 1rem;
+    mix-blend-mode: multiply; /* Ayuda a que el fondo blanco de los jpg se fusione (opcional) */
+}
+
+/* --- Título del Producto --- */
+body > div > div h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    color: #2c3e50;
+    
+    /* Limitar el título a 2 líneas para que las cajas sean iguales */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- Precio --- */
+body > div > div > p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* --- Información Adicional (Dinámica) --- */
+/* Estilos para el div que se crea al hacer click */
+body > div > div > div {
+    margin-top: 1rem;
+    width: 100%;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 0 !important; /* El JS pone padding inline, esto lo podría sobrescribir si usas !important, o déjalo que el JS mande */
+    animation: fadeIn 0.5s ease-in-out;
+    text-align: left;
+}
+
+/* Título de info adicional */
+body > div > div > div h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #7f8c8d;
+    margin: 10px 0 5px 0;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+/* Texto de info general */
+body > div > div > div p {
+    font-size: 0.85rem;
+    color: #555;
+    white-space: pre-line; /* IMPORTANTE: Respeta los saltos de línea del template literal JS */
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive para móviles muy pequeños */
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+    body > div {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+}
