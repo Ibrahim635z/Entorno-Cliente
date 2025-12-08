@@ -1,40 +1,119 @@
-import db  from './db/db.json' with {type: 'json'};
+let students=[];
 
-const mostrar= (db) =>{
-    const arrEstudiantes=db.students;
-    console.log(arrEstudiantes);
+let enrollments=[];
+
+let courses=[];
+
+// Fetch
+
+async function getStudents() {
+    const datosEstudiantes= await fetch("http://localhost:3005/students");
+    students= await datosEstudiantes.json();
+    return students;
 }
-const comprobarSesion= () => {
 
-    boton.addEventListener("click",(event)=>{
 
-        event.preventDefault();
+async function getEnrollment() {
+    const datosEnrollments=await fetch("http://localhost:3005/enrollments");
+    enrollments=await datosEnrollments.json();
+    return enrollments;
+}
 
-        const usuario=document.getElementById("user");
-        const password=document.getElementById("password");
-        const usuarioValor=usuario.value;
-        //const passwordValor=password.value;
-        
-       
-        const usuarioEncontrado = db.students.find(usuario => usuario.name === usuarioValor);
+async function getCourses() {
+    const datosCourses= await fetch("http://localhost:3005/courses");
+    courses=await datosCourses.json();
+    return courses;
+}
 
-          
-    if(usuarioEncontrado){
-        window.location.href='http://127.0.0.1:5500/JsonServer/index.html'
-        
-    }else{
-        alert("usuario o contraseña incorrectos")
+
+//login
+function guardarCredenciales(estudiante) {
+    localStorage.setItem("user",estudiante.name);
+    localStorage.setItem("email",estudiante.email);
+}
+
+function cargarInicio() {
+    if (window.location.pathname.includes("login.html")) return;
+
+
+    if (!localStorage.getItem("user") || !localStorage.getItem("email")) {
+        window.location.href = "login.html";
     }
+}
 
+
+function validarSesion() {
+    const boton=document.getElementById("boton");
+
+    if(!boton) return; 
+
+    boton.addEventListener("click",() =>{
+
+        let user=document.getElementById("user").value;
+        let email=document.getElementById("email").value;
+
+
+        let estudiante=students.find(student => 
+            student.name===user && student.email===email);
+
+        if (estudiante) {
+            guardarCredenciales(estudiante);
+            window.location.href="index.html"
+        } else {
+            alert("El usuario o contraseña no existe")
+        }
 
     })
-    
-} 
+}
 
-const main= () => {
-    mostrar(db);
-    comprobarSesion();
+
+
+// INDEX
+
+function cards(padre) {
+    padre.innerHTML = "";
+    padre.style.display = "flex";
+
+    enrollments.forEach(enr => {
+        let fragment = card(enr)
+        padre.appendChild(fragment);
+    });
+
 
 }
 
-document.addEventListener("DOMContentLoaded",main);
+
+
+
+function card(enrollment) {
+    const div = document.createElement("div");
+    div.id = `Enrollment${enrollment.id}`;
+    div.style.cssText = "border:1px solid black; margin:15px; padding:10px";
+
+
+    div.innerHTML = `
+                <h3>Enrollment ${enrollment.id} </h3>
+                <p>Course id:${enrollment.courseId}</p>
+                <p>Student id:${enrollment.studentId}</p>
+            `;
+    return div
+}
+
+
+//   MAIN
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await getStudents();
+    await getEnrollment();
+    await getCourses();
+
+    const container=document.getElementById("container");
+    if (container) {
+        cards(container);
+    }
+
+    validarSesion();
+    cargarInicio();
+
+    
+})

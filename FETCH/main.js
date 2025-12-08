@@ -7,7 +7,9 @@ async function getFetch() {
 
 
 function getFetchV2() {
-    fetch("https://fakestoreapi.com/products").then(res => res.json()).then(json => console.log(json)).catch(error => console.log(error));
+    fetch("https://fakestoreapi.com/products")
+    .then(res => res.json())
+    .then(json => console.log(json)).catch(error => console.log(error));
 }
 
 

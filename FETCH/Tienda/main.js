@@ -1,3 +1,5 @@
+import { get } from "./httpCliente.js";
+
 function MostrarDatos(arDatos) {
 
     document.body.innerHTML = "";
@@ -59,9 +61,13 @@ function getFetch() {
         .catch(error => console.log(error));
 }
 
+function getFetchV3(url) {
+    get(url).then(json => MostrarDatos(json))
+}
+
 const main = () => {
-    getFetch();
-    
+    //getFetch();
+    getFetchV3("https://fakestoreapi.com/products");
 }
 
 document.addEventListener("DOMContentLoaded", main);
