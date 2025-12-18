@@ -47,8 +47,10 @@ function validarSesion() {
 
     if(!boton) return; 
 
-    boton.addEventListener("click",() =>{
+    boton.addEventListener("click",(event) =>{
 
+        event.preventDefault();
+        
         let user=document.getElementById("user").value;
         let email=document.getElementById("email").value;
 
