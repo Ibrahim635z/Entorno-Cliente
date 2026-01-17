@@ -1,0 +1,18 @@
+.titulo {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 30px 0;
+    color: #222;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
