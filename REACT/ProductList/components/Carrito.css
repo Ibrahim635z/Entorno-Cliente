@@ -1,0 +1,10 @@
+.container-carrito{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+
+.container-carrito p{
+    text-align: center;
+}

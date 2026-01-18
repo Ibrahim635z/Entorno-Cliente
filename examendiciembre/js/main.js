@@ -147,7 +147,7 @@ function mostrarFiltrados(arrFiltrado) {
 /**
  * La función recorre el array de productos y por cada elemento si su categoría no está ya en el array de categorias
  * se añadirá.
- * 
+ *
  * @param {*} arrObjBDProductos Recibe array de productos
  * @returns devuelve todas las categorías que hay existentes entre todos los productos
  */

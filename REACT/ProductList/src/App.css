@@ -1,0 +1,9 @@
+/* Esto hace que el contenedor principal ocupe toda la pantalla */
+body {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    min-height: 100vh;       /* Asegura que el body mida al menos el alto de la pantalla */
+    margin: 0;    
+             /* Quita márgenes por defecto */
+}

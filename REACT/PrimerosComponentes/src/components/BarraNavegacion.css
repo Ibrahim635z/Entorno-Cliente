@@ -1,0 +1,25 @@
+body{
+    justify-content: center;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border: 1px solid white;
+    padding: 10%;
+    width: 100%;
+}
+
+.card input{
+    height: 30px;
+    background-color: white;
+}
+
+.card button{
+    background-color: #46eb05;
+    color: black;
+}
+
+.card h3{
+    text-align: center;
+}

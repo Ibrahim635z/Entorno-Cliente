@@ -1,0 +1,22 @@
+.container-booklist{
+    width: 100%;
+    background-color: lightgray;
+}
+h2{
+    text-align: center;
+}
+
+.componentes{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 5%;
+}
+
+.buscador{
+    width: 30%;
+}
+
+.carrito{
+    width: 50%;
+}
